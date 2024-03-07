@@ -307,22 +307,35 @@ aside li {
 * --------------------------------------------------
 */
 .featured-collection {
-  display: block;
-  margin-bottom: 2rem;
+  display: flex;
+  margin-bottom: 2px;
   position: relative;
 }
 
 .featured-collection-image {
-  aspect-ratio: 1 / 1;
-  @media (min-width: 45em) {
-    aspect-ratio: 16 / 9;
-  }
+  flex: 0 0 50%; /* Adjust width as needed */
+}
+
+.featured-collection-content {
+  flex: 0 0 50%; /* Adjust width as needed */
+  padding: 0 1rem; /* Add padding for spacing */
 }
 
 .featured-collection img {
   height: auto;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: fill;
+}
+
+@media (max-width: 45em) {
+  .featured-collection {
+    flex-direction: column;
+  }
+
+  .featured-collection-image,
+  .featured-collection-content {
+    flex: 1;
+  }
 }
 
 .recommended-products-grid {
